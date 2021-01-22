@@ -1,3 +1,1 @@
-## HCC Devs
-
-https://hccdevs.github.io/
+[## HCC Devs](https://hccdevs.github.io/)
