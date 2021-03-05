@@ -4,90 +4,131 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>🏠 Home Page</title>
-    <!-- CSS Styling -->
+
+    <title>HCC Devs</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      * {
-        font-family: "Montserrat", sans-serif;
+      body {
+        background-color: #212529;
+        font-family: "Bebas Neue", cursive;
       }
-      li {
-        margin: 12px 0;
+
+      .header {
+        color: white;
+        margin: 24px;
       }
-      h4,
-      .git {
+
+      .page-title {
+        font-size: 42pt;
+      }
+
+      .page-url {
+        font-size: 24pt;
+        margin-left: 16px;
         font-style: italic;
+      }
+
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+      }
+
+      .card {
+        width: 18rem;
+        height: 18rem;
+        position: relative;
+        text-align: center;
+      }
+
+      .card img {
+        object-fit: cover;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+      }
+
+      .card:hover .overlay {
+        opacity: 1;
+      }
+
+      .btn {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Animate button when hovering .btn */
+      .card:hover {
+        transition: 0.3s ease all;
+        transform: translateY(-5px);
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: 0.5s ease;
+        background-color: #e46dda;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card-title {
+        font-size: 42pt;
+        color: black;
       }
     </style>
   </head>
   <body>
-    <a href="#">🏠 Home</a>
-
-    <h1>HCC Devs Page</h1>
-
-    <h2>
-      <a href="https://hccdevs.github.io">
-        hccdevs.github.io
-      </a>
-    </h2>
-
-    <ul>
-      <li>
-        <a href="./tommy.html" style="background: pink;">Tommy</a>
-      </li>
-      <li>
-        <a href="./ben.html" style="background: yellow;">Ben</a>
-      </li>
-      <li>
-        <a href="./daniel.html" style="background: rgba(0, 0, 255, 0.5);"
-          >Daniel</a
+    <div class="header">
+      <span class="page-title">HCC Devs</span>
+      <span class="page-url">hccdevs.github.io</span>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <a
+          href="https://scratch.mit.edu/users/hccdevs/"
+          target="_blank"
+          class="btn"
         >
-      </li>
-      <li>
-        <a href="./ilya.html" style="background: white;">Ilya</a>
-      </li>
-      <li>
-        <a href="./petra.html" style="background: rgba(128, 0, 128, 0.5);"
-          >Petra</a
+          <img src="https://i.imgur.com/1IIRHFq.png" alt="scratch content" />
+          <div class="overlay">
+            <div class="card-title">HCC Scratch Content</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a
+          href="https://hccdevs.github.io/mini2021q1"
+          target="_blank"
+          class="btn"
         >
-      </li>
-    </ul>
+          <img src="https://i.imgur.com/diCWuIS.png" alt="page content" />
+          <div class="overlay">
+            <div class="card-title">MiniDevs 2021Q1</div>
+          </div>
+        </a>
+      </div>
 
-    <hr />
-
-    <h4>
-      <a target="_blank" href="https://github.com/hccdev/hccdev.github.io">
-        🔗 Recent Changes
-      </a>
-    </h4>
-    <ol class="git"></ol>
-
-    <script>
-      /* Start of Recent Changes code */
-      // This is just to display the recent changes from GitHub (where we're hosting our website)
-      function setGitLogs() {
-        fetch("https://api.github.com/repos/hccdevs/hccdevs.github.io/commits")
-          .then((response) => response.json())
-          .then((commits) => {
-            let git = document.querySelector(".git");
-            git.innerHTML = "";
-
-            for (let i = 0; i < 21; i++) {
-              let modified = new Date(commits[i].commit.committer.date)
-                .toString()
-                .slice(0, 25);
-              let message = commits[i].commit.message;
-              let url = commits[i].html_url;
-
-              let commit = document.createElement("li");
-              commit.innerHTML = `<p>${modified}:
-              <a href=${url} target="_blank">${message}</a></p>`;
-              console.log(commit);
-              git.appendChild(commit);
-            }
-          });
-      }
-      setGitLogs();
-      /* End of recent changes code */
-    </script>
+      <div class="card">
+        <a href="https://hccdevs.github.io/ycws" target="_blank" class="btn">
+          <img src="https://i.imgur.com/mjsvkYR.png" alt="page content" />
+          <div class="overlay">
+            <div class="card-title">Youth Council Workshops 2021Q1</div>
+          </div>
+        </a>
+      </div>
+    </div>
   </body>
 </html>
